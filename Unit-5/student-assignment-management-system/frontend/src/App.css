@@ -1,0 +1,293 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #f3f5ff;
+  color: #17215f;
+  font-family: Arial, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+}
+
+/* Left navigation */
+.sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  padding: 22px 14px;
+  background: #fff;
+  border-right: 1px solid #e7eaff;
+}
+
+.logo {
+  margin: 0 0 32px;
+  color: #087ee8;
+  font-size: 28px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar a {
+  padding: 11px 12px;
+  border-radius: 8px;
+  color: #515b91;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: #eef1ff;
+  color: #1747c7;
+}
+
+/* Main dashboard */
+.dashboard {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.dashboard-heading {
+  margin-bottom: 22px;
+}
+
+.dashboard-heading h1 {
+  margin: 0 0 6px;
+  color: #17215f;
+  font-size: 30px;
+}
+
+.dashboard-heading p {
+  margin: 0;
+  color: #7883bd;
+  font-size: 14px;
+}
+
+/* Summary cards */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.card {
+  min-height: 82px;
+  padding: 15px 17px;
+  border-radius: 12px;
+  background: #111b91;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(29, 42, 107, 0.12);
+}
+
+.card:nth-child(2) {
+  background: #087bc4;
+}
+
+.card:nth-child(3) {
+  background: #08bfd7;
+}
+
+.card:nth-child(4) {
+  background: #bdc9fa;
+  color: #202b76;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.card p {
+  margin: 0;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+/* Add assignment form and assignment list */
+.assignments {
+  margin-bottom: 18px;
+  padding: 20px;
+  border: 1px solid #e8ebf8;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(37, 52, 107, 0.08);
+}
+
+.assignments h2 {
+  margin: 0 0 16px;
+  color: #202b76;
+  font-size: 18px;
+}
+
+.assignments form {
+  display: grid;
+  gap: 12px;
+}
+
+.assignments input {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #dce2f3;
+  border-radius: 8px;
+  background: #fbfcff;
+  color: #17215f;
+}
+
+.assignments input:focus {
+  outline: 2px solid #9bb8ff;
+  border-color: #4778e8;
+}
+
+.assignments label {
+  margin-bottom: -7px;
+  color: #515b91;
+  font-size: 13px;
+}
+
+.assignments form button {
+  justify-self: start;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 7px;
+  background: #1747c7;
+  color: #fff;
+  cursor: pointer;
+}
+
+.assignments form button:hover {
+  background: #123aa8;
+}
+
+/* Individual assignment cards */
+.assignment-item {
+  margin-top: 12px;
+  padding: 15px;
+  border: 1px solid #e0e5f7;
+  border-radius: 10px;
+  background: #fbfcff;
+}
+
+.assignment-item h3 {
+  margin: 0 0 8px;
+  color: #202b76;
+  font-size: 16px;
+}
+
+.assignment-item p {
+  margin: 5px 0;
+  color: #6874aa;
+  font-size: 13px;
+}
+
+.assignment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 13px;
+}
+
+.assignment-actions button {
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.edit-button {
+  background: #1769d2;
+}
+
+.edit-button:hover {
+  background: #1255ad;
+}
+
+.status-button {
+  background: #159b70;
+}
+
+.status-button:hover {
+  background: #107b59;
+}
+
+.delete-button {
+  background: #d74655;
+}
+
+.delete-button:hover {
+  background: #b83240;
+}
+
+/* Adapt the layout for smaller screens */
+@media (max-width: 800px) {
+  .sidebar {
+    width: 165px;
+  }
+
+  .dashboard {
+    padding: 24px 18px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .app {
+    display: block;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    padding: 12px;
+    border-right: 0;
+    border-bottom: 1px solid #e7eaff;
+  }
+
+  .logo {
+    margin: 0 0 10px;
+  }
+
+  .sidebar nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .sidebar a {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .dashboard {
+    padding: 22px 14px;
+  }
+
+  .dashboard-heading h1 {
+    font-size: 25px;
+  }
+
+  .assignments {
+    padding: 16px;
+  }
+}
